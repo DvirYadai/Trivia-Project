@@ -70,3 +70,18 @@ module.exports.logout_get = (req, res) => {
   res.cookie("jwt", "logged_out", { maxAge: 1 });
   res.status(200).send("user logged out");
 };
+
+module.exports.token_get = (req, res) => {
+  if (req.cookies.jwt) {
+    const token = req.cookies.jwt;
+    jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
+      if (err) {
+        return res.status(403).send("Invalid access Token");
+      } else {
+        return res.status(200).json({ user: decodedToken.user.userName });
+      }
+    });
+  } else {
+    return res.status(401).send("Access Token Required");
+  }
+};

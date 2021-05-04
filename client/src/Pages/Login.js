@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import "../App.css";
@@ -9,6 +9,20 @@ export default function Login({ setUserName, setIsLogin }) {
   const [error, setError] = useState("");
   const { register, handleSubmit } = useForm();
   const history = useHistory();
+
+  useEffect(async () => {
+    const res = await axios.get("/users/token");
+    if (res.status === 200) {
+      setUserName(res.data.user);
+      setIsLogin(true);
+      history.push({
+        pathname: "/main",
+        state: { user: res.data.user },
+      });
+    } else {
+      return;
+    }
+  }, []);
 
   const loginButton = async ({ email, password }) => {
     setError("");
