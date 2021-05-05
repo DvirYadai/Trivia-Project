@@ -12,6 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
+app.use(express.static("client/build"));
+
 app.use("/trivia", checkUser, triviaRoute);
 app.use("/high_score", checkUser, highScoreRoute);
 app.use("/rating", checkUser, ratingRoute);
