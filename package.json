@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"nodemon index\" \"npm run client\""
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,6 @@
   },
   "homepage": "https://github.com/DvirYadai/Trivia-Project#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "concurrently": "^6.0.2",
     "cookie-parser": "^1.4.5",
