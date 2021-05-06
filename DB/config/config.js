@@ -8,9 +8,7 @@ module.exports = {
     port: "3306",
     dialect: "mysql",
     logging: false,
-    dialectOptions: {
-      socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
-    },
+    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
   },
   test: {
     username: "root",
@@ -20,9 +18,7 @@ module.exports = {
     port: "3306",
     dialect: "mysql",
     logging: false,
-    dialectOptions: {
-      socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
-    },
+    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
   },
   production: {
     username: "root",
@@ -32,8 +28,6 @@ module.exports = {
     port: "3306",
     dialect: "mysql",
     logging: false,
-    dialectOptions: {
-      socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
-    },
+    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
   },
 };

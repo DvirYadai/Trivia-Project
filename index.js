@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.static("client/build"));
+app.get("/", (req, res) => res.sendFile("index.html"));
 
 app.use("/trivia", checkUser, triviaRoute);
 app.use("/high_score", checkUser, highScoreRoute);
